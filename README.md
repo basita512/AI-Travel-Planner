@@ -118,7 +118,3 @@ Create a `.env` file in the backend directory with:
 ```
 GEMINI_API_KEY=your_gemini_api_key_here
 ```
-
-## License
-
-[MIT License](LICENSE) 
