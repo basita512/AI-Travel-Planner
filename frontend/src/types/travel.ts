@@ -41,12 +41,12 @@ export interface TransportOption {
 }
 
 export interface CostBreakdown {
-  accommodation: number;
-  transportation: number;
-  activities: number;
-  food: number;
-  miscellaneous?: number;
-  total: number;
+  accommodation: string;
+  transportation: string;
+  activities: string;
+  food: string;
+  miscellaneous?: string;
+  total: string;
 }
 
 export interface Activity {
@@ -64,4 +64,5 @@ export interface TravelPlan {
   transportation_options: TransportOption[];
   estimated_costs: CostBreakdown;
   activities: Activity[];
+  travelers?: number;
 } 

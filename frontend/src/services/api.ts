@@ -11,8 +11,14 @@ const api = axios.create({
 
 export const generateTravelPlan = async (request: TravelRequest): Promise<TravelPlan> => {
   try {
-    const response = await api.post<TravelPlan>('/generate-plan', request);
-    return response.data;
+    // Updated endpoint to match the new backend structure
+    const response = await api.post<TravelPlan>('/travel/generate-plan', request);
+    
+    // Add the traveler count from the request to the response
+    return {
+      ...response.data,
+      travelers: request.travelers
+    };
   } catch (error) {
     console.error('Error generating travel plan:', error);
     throw error;

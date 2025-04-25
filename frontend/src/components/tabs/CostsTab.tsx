@@ -6,9 +6,16 @@ interface CostsTabProps {
 }
 
 const CostsTab = ({ costs }: CostsTabProps) => {
+  // Helper function to extract numeric value from string with rupee symbol
+  const getNumericValue = (value: string): number => {
+    return parseFloat(value.replace('₹', '').replace(/,/g, ''));
+  };
+
   // Calculate the percentage for each category
-  const calculatePercentage = (value: number) => {
-    return ((value / costs.total) * 100).toFixed(1);
+  const calculatePercentage = (value: string) => {
+    const numericValue = getNumericValue(value);
+    const totalValue = getNumericValue(costs.total);
+    return ((numericValue / totalValue) * 100).toFixed(1);
   };
 
   // Colors for categories
@@ -64,7 +71,7 @@ const CostsTab = ({ costs }: CostsTabProps) => {
               key={item.key}
               className={`${colors[item.key as keyof typeof colors]} h-full`}
               style={{ width: `${calculatePercentage(item.value)}%` }}
-              title={`${item.label}: $${item.value} (${calculatePercentage(item.value)}%)`}
+              title={`${item.label}: ${item.value} (${calculatePercentage(item.value)}%)`}
             ></div>
           ))}
         </div>
@@ -80,7 +87,7 @@ const CostsTab = ({ costs }: CostsTabProps) => {
                 <span>{item.label}</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="font-semibold">${item.value}</div>
+                <div className="font-semibold">{item.value}</div>
                 <div className="text-sm text-gray-500">({calculatePercentage(item.value)}%)</div>
               </div>
             </div>
@@ -90,7 +97,7 @@ const CostsTab = ({ costs }: CostsTabProps) => {
         {/* Total cost */}
         <div className="flex justify-between items-center p-4 bg-gray-50 rounded-lg mt-4 border-t-2 border-primary">
           <span className="font-semibold text-lg">Total Cost</span>
-          <span className="font-bold text-xl text-primary">${costs.total}</span>
+          <span className="font-bold text-xl text-primary">{costs.total}</span>
         </div>
       </div>
     </div>

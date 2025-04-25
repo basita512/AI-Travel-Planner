@@ -159,7 +159,6 @@ const TravelForm = ({ setTravelPlan, setLoading }: TravelFormProps) => {
               onChange={handleChange}
               placeholder="Your total budget"
               className="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2563eb]/20 focus:border-[#2563eb] transition-colors bg-white text-gray-800"
-              min="1"
               required
             />
           </div>

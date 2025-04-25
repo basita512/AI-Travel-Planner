@@ -17,7 +17,7 @@ function App() {
             <h1 className="text-2xl font-bold">AI Travel Planner</h1>
           </div>
           <p className="text-blue-100 max-w-2xl">
-            Personalized travel plans generated in seconds using AI. Enter your details below to get started.
+            Personalized travel plans within India generated in seconds using AI. Discover the perfect destinations, accommodations, and activities across India. Enter your details below to get started.
           </p>
         </div>
       </header>
