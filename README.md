@@ -39,9 +39,18 @@ ai-travel-planner/
 │   ├── package.json        # Frontend dependencies
 │   └── ...
 └── backend/                # FastAPI backend application
-    ├── main.py             # API endpoints and business logic
-    ├── requirements.txt    # Python dependencies
-    └── .env                # Environment variables (not in repo)
+    ├── app/                # Main application package
+    │   ├── api/            # API routes
+    │   │   ├── __init__.py # API router initialization
+    │   │   └── travel.py   # Travel-related endpoints
+    │   ├── services/       # Services
+    │   │   ├── __init__.py # Services package init
+    │   │   └── ai_service.py # Gemini AI integration
+    │   ├── __init__.py     # App package init
+    │   ├── main.py         # FastAPI application setup
+    │   └── models.py       # Pydantic data models
+    ├── run.py              # Application entry point
+    └── requirements.txt    # Python dependencies
 ```
 
 ## Getting Started
@@ -64,8 +73,7 @@ cd ai-travel-planner
 ```bash
 cd backend
 pip install -r requirements.txt
-cp .env.example .env
-# Edit .env and add your GEMINI_API_KEY
+# Create a .env file with your GEMINI_API_KEY
 ```
 
 3. Set up the frontend
@@ -79,7 +87,7 @@ npm install
 1. Start the backend
 ```bash
 cd backend
-uvicorn main:app --reload
+python run.py
 ```
 
 2. Start the frontend
@@ -119,6 +127,39 @@ Create a `.env` file in the backend directory with:
 GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
-## License
+## Testing Your API Key
 
-[MIT License](LICENSE) 
+To ensure your Google Gemini API key is working correctly, you can use the included test script:
+
+```bash
+cd backend
+python test_gemini.py
+```
+
+## API Endpoints
+
+### POST /travel/generate-plan
+Generates a travel plan based on the provided request details
+
+#### Request Body
+```json
+{
+  "source": "Delhi",
+  "destination": "Goa",
+  "start_date": "2023-12-15",
+  "end_date": "2023-12-20",
+  "budget": 50000,
+  "travelers": 2,
+  "interests": ["beaches", "food", "culture"]
+}
+```
+
+#### Response
+Returns a travel plan with:
+- Itinerary
+- Accommodation suggestions
+- Transportation options
+- Cost breakdown
+- Activity recommendations
+
+
