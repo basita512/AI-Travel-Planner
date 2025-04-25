@@ -1,0 +1,44 @@
+┌──────────────────┐     
+│       User       │     
+└────────┬─────────┘     
+         │ 1. Travel request            
+         ▼             
+┌──────────────────┐     ┌────────────────────────────────┐
+│     Frontend     │     │ React + TypeScript + Tailwind  │
+│                  │────►│                                │
+│    React App     │     │ - TravelForm                   │
+└────────┬─────────┘     │ - TravelPlanDisplay            │
+         │ 2.JSON request│ - API Services                 │
+         ▼               └────────────────────────────────┘
+┌──────────────────┐     ┌────────────────────────────────┐
+│     Backend      │     │ Python + FastAPI               │
+│                  │────►│                                │
+│     FastAPI      │     │ - /generate-plan endpoint      │
+└────────┬─────────┘     │ - Pydantic models              │
+         │ 3. AI prompt  │ - Response processing          │
+         ▼               └────────────────────────────────┘
+┌──────────────────┐     
+│    AI Model      │     
+│                  │     
+│  Google Gemini   │     
+│   1.5 Flash      │     
+└────────┬─────────┘     
+         │ 4. JSON response
+         ▼
+┌──────────────────┐
+│     Backend      │
+│    Processing    │
+└────────┬─────────┘
+         │ 5. Formatted travel plan
+         ▼
+┌──────────────────┐
+│     Frontend     │
+│     Display      │
+└────────┬─────────┘
+         │ 6. Visual presentation
+         ▼
+┌──────────────────┐
+│       User       │
+│    Interface     │
+└──────────────────┘ 
+
