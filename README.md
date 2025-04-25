@@ -127,39 +127,6 @@ Create a `.env` file in the backend directory with:
 GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
-## Testing Your API Key
+## License
 
-To ensure your Google Gemini API key is working correctly, you can use the included test script:
-
-```bash
-cd backend
-python test_gemini.py
-```
-
-## API Endpoints
-
-### POST /travel/generate-plan
-Generates a travel plan based on the provided request details
-
-#### Request Body
-```json
-{
-  "source": "Delhi",
-  "destination": "Goa",
-  "start_date": "2023-12-15",
-  "end_date": "2023-12-20",
-  "budget": 50000,
-  "travelers": 2,
-  "interests": ["beaches", "food", "culture"]
-}
-```
-
-#### Response
-Returns a travel plan with:
-- Itinerary
-- Accommodation suggestions
-- Transportation options
-- Cost breakdown
-- Activity recommendations
-
-
+[MIT License](LICENSE) 
